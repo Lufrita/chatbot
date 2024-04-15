@@ -5,10 +5,10 @@ import WikipediaSearch from '../WikipediaSearch/WikipediaSearch'
 
 const theme = {
     background: '#f5f8fb',
-    headerBgColor: '#eb3449',
+    headerBgColor: '#66bd51',
     headerFontColor: '#fff',
     headerFontSize: '20px',
-    botBubbleColor: '#eb3449',
+    botBubbleColor: '#97d289',
     botFontColor: '#fff',
     userBubbleColor: '#0cb3c9',
     userFontColor: '#fff',
@@ -22,7 +22,7 @@ export default class Contenido extends Component {
                     steps={[
                         {
                             id: "1",
-                            message: "Hello world. I am a chatbot. What's your name?",
+                            message: "¡Hola! Bienvenido a la atención del asistente virtual de Ltec. Por favor ingrese su nombre",
                             trigger: "2"
                         },
                         {
@@ -33,31 +33,26 @@ export default class Contenido extends Component {
                                     return true;
                                 }
                                 else {
-                                    return 'Please enter a valid name.';
+                                    return 'Por favor, ingrese un nombre válido';
                                 }
                             },
                             trigger: "3"
                         },
                         {
                             id: "3",
-                            message: "Hi {previousValue}, nice to meet you!",
+                            message: "Hola {previousValue}, por favor seleccione una opción",
                             trigger: "4"
                         },
                         {
                             id: "4",
-                            message: "Do you need anything from me?",
-                            trigger: "5"
-                        },
-                        {
-                            id: "5",
                             options: [
-                                {value: "y", label: "Yes", trigger: "6A"},
-                                {value: "n", label: "No", trigger: "6B"},
+                                {value: "y", label: "Consultas Generales", trigger: "6A"},
+                                {value: "n", label: "Contactar un ejecutivo", trigger: "6B"},
                             ]
                         },
                         {
                             id: "6A",
-                            message: "Great! Tell me what are you looking for...",
+                            message: "Por favor, seleccione lo que busca",
                             trigger: "seleccion"
                         },
                         {
@@ -68,34 +63,54 @@ export default class Contenido extends Component {
                         {
                             id: "seleccion",
                             options: [
-                                {value: "f", label: "Front-End", trigger: "7A"},
-                                {value: "b", label: "Back-End", trigger: "7B"},
+                                {value: "f", label: "Firma Folio", trigger: "7A"},
+                                {value: "b", label: "Folios", trigger: "7B"},
+                                {value: "im", label: "Informes Mensuales", trigger: "7C"},
+                                {value: "ep", label: "Estados de Pago", trigger: "7B"},
+                                {value: "u", label: "Usuarios", trigger: "7B"},
+                                {value: "e", label: "En caso de error", trigger: "7B"},
                             ]
                         },
                         {
                             id: "7A",
-                            message: "I see you like Front-End programming! Which of these frameworks would you like to know more about?",
-                            trigger: "seleccionFront"
+                            message: "Seleccione su perfil",
+                            trigger: "seleccionPerfil"
                         },
                         {
                             id: "7B",
-                            message: "I see you like Back-End programming! Which of these frameworks would you like to know more about?",
-                            trigger: "seleccionBack"
+                            message: "seleccione una opción",
+                            trigger: "seleccionFolio"
                         },
                         {
-                            id: "seleccionFront",
+                            id: "7C",
+                            message: "Seleccione una opción",
+                            trigger: "seleccionInformes"
+                        },
+                        {
+                            id: "seleccionPerfil",
                             options: [
-                                {value: "Angular_(framework)", label: "Angular", trigger: "9"},
-                                {value: "React", label: "React", trigger: "9"},
-                                {value: "Vue.js", label: "Vue.js", trigger: "9"},
+                                {value: "if", label: "Inspector Fiscal", trigger: "9"},
+                                {value: "res", label: "Residente / ITO", trigger: "9"},
+                                {value: "pin", label: "Especialista", trigger: "9"},
                             ]
                         },
                         {
-                            id: "seleccionBack",
+                            id: "seleccionFolio",
                             options: [
-                                {value: "Spring_Framework", label: "Spring", trigger: "9"},
-                                {value: "Laravel", label: "Laravel", trigger: "9"},
-                                {value: ".NET_Core", label: ".Net Core", trigger: "9"},
+                                {value: "creacion", label: "Creación de folio", trigger: "9"},
+                                {value: "adjuntar", label: "Adjuntar archivos", trigger: "9"},
+                                {value: "alerta", label: "Folio alerta", trigger: "9"},
+                                {value: "editar", label: "editar folio", trigger: "9"},
+                            ]
+                        },
+                        {
+                            id: "seleccionInformes",
+                            options: [
+                                {value: "editarif", label: "Editar IM If", trigger: "9"},
+                                {value: "editares", label: "Editar IM Residente", trigger: "9"},
+                                {value: "subcontratista", label: "Subcontratistas", trigger: "9"},
+                                {value: "accid", label: "Accidentados", trigger: "9"},
+                                {value: "resi", label: "Residuos", trigger: "9"},
                             ]
                         },
                         {
