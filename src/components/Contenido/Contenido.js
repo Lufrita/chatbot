@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ChatBot from 'react-simple-chatbot'
 import { ThemeProvider } from 'styled-components'
-import WikipediaSearch from '../WikipediaSearch/WikipediaSearch'
+import { redirectToVideo } from '../Funciones/funciones'
 
 const theme = {
     background: '#f5f8fb',
@@ -89,48 +89,30 @@ export default class Contenido extends Component {
                         {
                             id: "seleccionPerfil",
                             options: [
-                                {value: "if", label: "Inspector Fiscal", trigger: "9"},
-                                {value: "res", label: "Residente / ITO", trigger: "9"},
-                                {value: "pin", label: "Especialista", trigger: "9"},
+                                {value: "if", label: "Inspector Fiscal", trigger: () => (redirectToVideo('https://www.google.com/'))},
+                                {value: "res", label: "Residente / ITO", trigger: () => (redirectToVideo('https://www.facebook.com/'))},
+                                {value: "pin", label: "Especialista"},
                             ]
                         },
                         {
                             id: "seleccionFolio",
                             options: [
-                                {value: "creacion", label: "Creación de folio", trigger: "9"},
-                                {value: "adjuntar", label: "Adjuntar archivos", trigger: "9"},
-                                {value: "alerta", label: "Folio alerta", trigger: "9"},
-                                {value: "editar", label: "editar folio", trigger: "9"},
+                                {value: "creacion", label: "Creación de folio"},
+                                {value: "adjuntar", label: "Adjuntar archivos"},
+                                {value: "alerta", label: "Folio alerta"},
+                                {value: "editar", label: "editar folio"},
                             ]
                         },
                         {
                             id: "seleccionInformes",
                             options: [
-                                {value: "editarif", label: "Editar IM If", trigger: "9"},
-                                {value: "editares", label: "Editar IM Residente", trigger: "9"},
-                                {value: "subcontratista", label: "Subcontratistas", trigger: "9"},
-                                {value: "accid", label: "Accidentados", trigger: "9"},
-                                {value: "resi", label: "Residuos", trigger: "9"},
+                                {value: "editarif", label: "Editar IM If"},
+                                {value: "editares", label: "Editar IM Residente"},
+                                {value: "subcontratista", label: "Subcontratistas"},
+                                {value: "accid", label: "Accidentados"},
+                                {value: "resi", label: "Residuos"},
                             ]
                         },
-                        {
-                            id: "9",
-                            component: <WikipediaSearch />,
-                            asMessage: true,
-                            trigger: "preguntaVuelta"
-                        },
-                        {
-                            id: "preguntaVuelta",
-                            message: "Do you need to know anything else?",
-                            trigger: "respuestaVuelta",
-                        }, 
-                        {
-                            id: "respuestaVuelta",
-                            options: [
-                                {value: "y", label: "Yes", trigger: "6A"},
-                                {value: "n", label: "No", trigger: "6B"},
-                            ],
-                        }
                     ]}
                 />
             </ThemeProvider>
